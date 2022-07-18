@@ -32,7 +32,7 @@
                         <div class="form-group w-25">
                             <input type="text" class="form-control" name="title" placeholder="Название поста" value="{{ $post->title }}">
                             @error('title')
-                            <div class="text-danger">Это поле необходимо для заполнения</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
@@ -40,7 +40,7 @@
                                 {{ $post->content }}
                             </textarea>
                             @error('content')
-                            <div class="text-danger">Это поле необходимо для заполнения</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group w-50">
@@ -58,13 +58,13 @@
                                 </div>
                             </div>
                             @error('preview_image')
-                            <div class="text-danger">Это поле необходимо для заполнения</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group w-50">
                             <label for="exampleInputFile">Добавить главное изображение</label>
                             <div class="w-50 mb-2">
-                                <img src="{{ url('storage/' . $post->main_image) }}" alt="main_image" class="w-50">
+                                <img src="{{ asset('storage/' . $post->main_image) }}" alt="main_image" class="w-50">
                             </div>
                             <div class="input-group">
                                 <div class="custom-file">
